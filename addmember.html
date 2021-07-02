@@ -1,0 +1,270 @@
+<html ng-app="simpleApp">
+	<head>
+		<link rel="stylesheet" href="./style.css" />
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+		<meta name='viewport' content='width=device-width, initial-scale=1'>
+		<script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
+
+		<link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet"/>
+
+		<link rel="stylesheet" href="https://rsms.me/inter/inter.css" />
+		<script src="index.js"></script>
+		<title>Web-task</title>
+	</head>
+	<body class="bg-gray-100">
+
+		<div class="header">
+            <div class ="container">
+              <div class = "navbar">
+                <nav>
+                  <ul id="MenuItems">
+                    <li><a href="#" class="fa fa-cloud-download"></a></li>
+					<li><a href="#" class="fa fa-money"></a></li>
+					<li><a href="#" class="fa fa-bell"></a></li>
+					<li><a href="#" class="fa fa-user-circle"></a>{{entry.name}}</li>
+                    <ul>
+                </nav>
+              </div>
+            </div>
+          </div>
+
+		  <br>
+		<div class="container">
+			<div class="table-container mt-3" ng-controller="simpleController">
+				<table
+					class="
+						mx-auto
+						max-w-4xl
+						px-4
+						w-full
+						whitespace-nowrap
+						rounded-lg
+						bg-white
+						divide-y divide-gray-300
+						overflow-hidden
+						border border-gray-500
+						shadow-md
+					"
+					border="1"
+				>
+					<thead class="bg-gray-50">
+						<tr class="text-gray-600 text-left">
+							<th class="font-semibold text-sm uppercase px-6 py-4">CLIENT ID</th>
+							<th class="font-semibold text-sm uppercase px-6 py-4">CLOSING AGENT</th>
+							<th class="font-semibold text-sm uppercase px-6 py-4">COMPANY</th>
+							<th class="font-semibold text-sm uppercase px-6 py-4">ORDER</th>
+							<th class="font-semibold text-sm uppercase px-6 py-4">INVOICE PAID</th>
+							<th class="font-semibold text-sm uppercase px-6 py-4">INVOICE PENDING</th>
+
+
+
+						</tr>
+					</thead>
+					<tbody class="divide-y divide-gray-200">
+						<tr ng-repeat="entry in collection">
+							<td class="px-6 py-4">{{entry.client}}</td>
+							<td class="px-6 py-4">{{entry.agent}}</td>
+							<td class="px-6 py-4">{{entry.company}}</td>
+							<td class="px-6 py-4">{{entry.order}}</td>
+							<td class="px-6 py-4">{{entry.paid}}</td>
+							<td class="px-6 py-4">{{entry.pending}}</td>
+							<td class="px-6 py-4"><a href="#" class="fa fa-money"></a></td>
+
+
+						</tr>
+					</tbody>
+				</table>
+				<form
+					ng-submit="addEntry()"
+					class="mt-4 bg-white px-6 py-7 rounded-lg shadow-md"
+				>
+					<h2 class="text-lg font-bold">Enter New Member Details</h2>
+					<table>
+						<tr>
+							<td>CLIENT ID</td>
+							<td>
+								<input
+									class="
+										shadow
+										appearance-none
+										border
+										rounded
+										py-2
+										px-3
+										text-grey-darker
+										my-2
+									"
+									type="number"
+									ng-model="newData.client"
+									required
+								/>
+							</td>
+						</tr>
+						<tr>
+							<td>CLOSING AGENT</td>
+							<td>
+								<input
+									class="
+										shadow
+										appearance-none
+										border
+										rounded
+										py-2
+										px-3
+										text-grey-darker
+										my-2
+									"
+									type="text"
+									ng-model="newData.agent"
+									required
+								/>
+							</td>
+						</tr>
+						<tr>
+							<td>COMPANY</td>
+							<td>
+								<input
+									class="
+										shadow
+										appearance-none
+										border
+										rounded
+										py-2
+										px-3
+										text-grey-darker
+										my-2
+									"
+									type="text"
+									ng-model="newData.company"
+									required
+								/>
+							</td>
+						</tr>
+						<tr>
+							<td>ORDER</td>
+							<td>
+								<input
+									class="
+										shadow
+										appearance-none
+										border
+										rounded
+										py-2
+										px-3
+										text-grey-darker
+										my-2
+									"
+									type="number"
+									ng-model="newData.order"
+									required
+								/>
+							</td>
+						</tr>
+						<tr>
+							<td>INVOICE PAID</td>
+							<td>
+								<input
+									class="
+										shadow
+										appearance-none
+										border
+										rounded
+										py-2
+										px-3
+										text-grey-darker
+										my-2
+									"
+									type="number"
+									ng-model="newData.paid"
+									required
+								/>
+							</td>
+						</tr>
+						<tr>
+							<td>INVOICE PENDING</td>
+							<td>
+								<input
+									class="
+										shadow
+										appearance-none
+										border
+										rounded
+										py-2
+										px-3
+										text-grey-darker
+										my-2
+									"
+									type="number"
+									ng-model="newData.pending"
+									required
+								/>
+							</td>
+						</tr>
+						<tr>
+							<td colspan="2">
+								<button
+									class="
+										submit-btn
+										bg-blue-500
+										hover:bg-blue-dark
+										text-white
+										font-bold
+										py-2
+										px-4
+										mt-2
+										rounded
+										my-2
+									"
+									type="submit"
+									value="Add Entry"
+								>
+									Add Member
+								</button>
+							</td>
+						</tr>
+					</table>
+				</form>
+			</div>
+		</div>
+
+
+
+
+
+
+
+
+
+
+        
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	</body>
+</html>
